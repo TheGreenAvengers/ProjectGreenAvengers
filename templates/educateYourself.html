@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Educate Yourself</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='educateYourself.css') }}"/>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+
+    {% from "_macros.html" import navbar, footer %}
+
+    {{ navbar(user) }}
+
+      <h1>Educate Yourself</h1>
+      
+      <br>
+    <center>
+    <div class="card text-center">
+      
+      <div class="card-body">
+        <h5 class="card-title"> <b>
+             Why Plantation is important ? </b></h5>
+        <p class="card-text">
+            Tree plantation is important because it provides fresh Oxygen,
+             fruits,vegetables, nuts, and other foods for the 
+             survival of life on Earth. </p>
+             <h5>For More, Watch this Video </h5>
+             <br>
+             <iframe width="560" height="315" src="https://www.youtube.com/embed/UnwMq1gGjhk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+      </div>
+    </div></center>
+    <br>
+    <center>
+    <div class="card text-center">
+      
+      <div class="card-body">
+        <h5 class="card-title"> <b>
+            What is the Best way  Of plantation ?</b></h5>
+        <p class="card-text">
+        Place the tree into the hole gently.
+         Be sure the hole isn't too deep or too shallow. The ground level of the plant should match up with the ground level after you backfill the hole.
+        </p>
+        <h5>For More, Watch this Video </h5>
+             <br>
+             <iframe width="560" height="315" src="https://www.youtube.com/embed/SJfpnGEMrKM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+       
+      </div>
+    </div></center>
+    <br>
+    <center>
+    <div class="card text-center">
+      
+      <div class="card-body">
+        <h5 class="card-title"> <b> How to take care of plant ?</b></h5>
+        <p class="card-text">
+            <ol>
+          <p> 1- Water plants regularly.</p>
+          <p> 2- Check the soil moisture.</p>
+         <p>3-  Pour water at room temperature.</p> 
+         <p> 4-  Give some sunlight or artificial light to plants.</p>
+         <p> 5-  Use humidifier to maintain surroundings.</p>
+          <p> 6- Add fertilizers to the pot to provide nutrients to plant.</p>
+         <p>  7- Prune your plant regularly.</p>
+        </ol>
+        </p>
+        <h5>For More, Watch this Video </h5>
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/LoWIqizH1m4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        
+      </div>
+    </div></center>
+    
+    {{ footer() }}
+
+  </body>
+</html>

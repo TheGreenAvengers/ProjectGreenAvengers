@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Local Sellers</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='localseller.css') }}">
+  <style media="screen">
+    .item {}
+
+    @media screen and (max-width: 1280px) {
+      /* Write your CSS properties here */
+
+    }
+  </style>
+</head>
+
+<body>
+
+  {% from "_macros.html" import navbar, footer %}
+
+  {{ navbar(user) }}
+
+  <div class="heading">
+      <div style="font-size: xx-large;">SELLERS IN YOUR CITY</div>
+  </div>
+
+  {% if sellers %}
+    <div class="flex-container" style="margin-bottom: 20vh;">
+      {% for seller in sellers %}
+      <div class="card cards m-2 mb-4" style="width: 20rem;">
+        <img class="card-img-top resize-img rounded local-seller-img" src="{{ url_for('static', filename='images/' + seller.image_file) }}" alt="Card image cap">
+        <div class="card-body bg-complimentary">
+          <h5 class="card-title">{{ seller.shop_name }}</h5>
+          <p class="card-text">{{ seller.name }}</p>
+        </div>
+        <ul class="list-group list-group-flush ">
+          <li class="list-group-item">Address - {{ seller.address }}</li>
+          <li class="list-group-item">Contact no. - {{ seller.contact_no }}</li>
+        </ul>
+      </div>   
+      {% endfor %}
+      
+      <!-- <div class="card mb-3 mx-5  item" style="max-width: 540px;     margin: 20px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Qufu_-_Xiguan_-_potted_plant_vendors_-_P1060023.JPG/1200px-Qufu_-_Xiguan_-_potted_plant_vendors_-_P1060023.JPG"
+              class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Name</h5>
+              <p class="card-text">an address in Patna</p>
+              <p class="card-text"><small class="text-muted">Known from 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+      </div>
+  {% else %}
+      <div class="container-fluid mt-5" style="height: 100vh;">
+        <h1>Sorry, you have no sellers in your city</h1>
+      </div>
+  {% endif %}
+  {{ footer() }}
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>

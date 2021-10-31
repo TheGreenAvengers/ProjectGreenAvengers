@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>The Green Avengers</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_login_register.css') }}">
+  </head>
+  <body class="bg-main">
+  
+
+    <form action="" method="POST" novalidate formnovalidate class="form" role="form">
+      {{ form.hidden_tag() }}
+      <div class="card login-pos mb-5" style="width: 30rem;  margin-top: 200px;">
+        
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+          <h5 class="card-title">Login</h5>
+          <a href="{{ url_for('user.register') }}" class="my-link">Register</a>
+        </div>
+          <div class="form-floating mb-3 mt-3">
+            <!-- <input type="text" class="form-control" id="floatingInput" placeholder="username"> -->
+            {{ form.username(class_='form-control', placeholder='username') }}
+            {% if form.username.errors %}
+            {% for e in form.username.errors %}
+                <p class="alert alert-danger">{{ e }}</p>
+            {% endfor %}
+            {% endif %} 
+            <label for="floatingInput">Username</label>
+          </div>
+          <div class="form-floating">
+            <!-- <input type="password" class="form-control" id="floatingPassword" placeholder="Password"> -->
+            {{ form.password(class_='form-control', placeholder='Password') }}
+            {% if form.password.errors %}
+            {% for e in form.password.errors %}
+                <p class="alert alert-danger">{{ e }}</p>
+            {% endfor %}
+            {% endif %} 
+            <label for="floatingPassword">Password</label>
+          </div>
+          
+          
+          <a href="{{ url_for('index') }}"><button type="button" class="btn btn-primary mt-3">Cancel </button></a>
+          <!-- <button type="button" class="btn btn-primary mt-3">Sign up</button> -->
+          {{ form.submit(class_='btn btn-primary mt-3') }}
+          
+          
+        
+        </div>
+      </div>
+    </form>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  
+  </body>
+</html>

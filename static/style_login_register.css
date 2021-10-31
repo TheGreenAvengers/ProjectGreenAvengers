@@ -1,0 +1,46 @@
+body{
+    background-color: #1a7d0f;
+    opacity: 0.8;
+    background: radial-gradient(circle, transparent 20%, #1a7d0f 20%, #1a7d0f 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #1a7d0f 20%, #1a7d0f 80%, transparent 80%, transparent) 22.5px 22.5px, linear-gradient(#0CC911 1.8px, transparent 1.8px) 0 -0.9px, linear-gradient(90deg, #0CC911 1.8px, #1a7d0f 1.8px) -0.9px 0;
+    background-size: 45px 45px, 45px 45px, 22.5px 22.5px, 22.5px 22.5px;
+    background-attachment: fixed;
+}
+
+.bg-main{
+    background-color: #0CC911;
+}
+.headings{
+    margin-left: 60px;
+    margin-top: 30px;
+    font-size: xx-large;
+}
+.cards{
+    margin-left: 60px;
+    margin-top: 30px;
+    
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .resize-img{
+      width: 100%;
+      height: 20rem;
+      background-size: 100% 100%;
+  }
+  .bg-complimentary{
+    background-color: #FFA95C;
+  }
+ .bg-form{
+     background-image: linear-gradient(#0CC911, #80db8f);
+     background-attachment: fixed;
+ }
+ .login-pos{
+    margin: auto;
+    margin-top: 60px; 
+    width: 50%;
+ }
+
+ .my-link {
+    text-decoration: none;
+  }

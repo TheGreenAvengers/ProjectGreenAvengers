@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_login_register.css') }}">
+  </head>
+  <body class="bg-main">
+    <form action="" method="POST" novalidate formnovalidate class="form" role="form">
+      {{ form.hidden_tag() }}
+      <div class="card login-pos mb-5" style="width: 30rem;">
+        
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+          <h5 class="card-title">Sign Up</h5>
+          <a href="{{ url_for('user.login') }}" class="my-link">Already Registered? Login</a>
+        </div>
+          <div class="form-floating mb-3 mt-3">
+            <!-- <input type="text" class="form-control" id="floatingInput" placeholder="username"> -->
+            {{ form.username(class_='form-control', placeholder='username') }}
+            {% if form.username.errors %}
+            {% for e in form.username.errors %}
+                <p class="alert alert-danger">{{ e }}</p>
+            {% endfor %}
+            {% endif %} 
+            <label for="floatingInput">Username</label>
+          </div>
+          <div class="form-floating">
+            <!-- <input type="password" class="form-control" id="floatingPassword" placeholder="Password"> -->
+            {{ form.password(class_='form-control', placeholder='Password') }}
+            {% if form.password.errors %}
+            {% for e in form.password.errors %}
+                <p class="alert alert-danger">{{ e }}</p>
+            {% endfor %}
+            {% endif %} 
+            <label for="floatingPassword">Password</label>
+          </div>
+          <div class="form-floating mt-3 mb-3">
+            <!-- <input type="password" class="form-control" id="floatingPassword" placeholder="Password"> -->
+            {{ form.retype_password(class_='form-control', placeholder='Password') }}
+            {% if form.retype_password.errors %}
+            {% for e in form.retype_password.errors %}
+                <p class="alert alert-danger">{{ e }}</p>
+            {% endfor %}
+            {% endif %} 
+            <label for="floatingPassword">Repeat Password</label>
+          </div>
+          
+          <div class="row g-2">
+            <div class="col-md">
+              <div class="form-floating">
+                <!-- <input type="number" class="form-control" id="floatingInputGrid" placeholder="age"> -->
+                {{ form.age(class_='form-control') }}
+                {% if form.age.errors %}
+                {% for e in form.age.errors %}
+                    <p class="alert alert-danger">{{ e }}</p>
+                {% endfor %}
+                {% endif %} 
+                <label for="floatingInputGrid">Age(in years)</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <!-- <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                  <option selected>City</option>
+                  <option value="1">Sagar</option>
+                  <option value="2">Patna</option>
+                  <option value="3">Ranchi</option>
+                </select> -->
+                {{ form.city(class_='form-select') }}
+                {% if form.city.errors %}
+                {% for e in form.city.errors %}
+                    <p class="alert alert-danger">{{ e }}</p>
+                {% endfor %}
+                {% endif %}
+                <label for="floatingSelectGrid">Your City</label>
+              </div>
+            </div>
+          </div>
+          <!-- <select class="form-select mt-3" aria-label="Default select example">
+            <option selected>Your Gender</option>
+            <option value="1">Male</option>
+            <option value="2">Female</option>
+            <option value="3">Others</option>
+          </select> -->
+          <div class="form-floating">
+            {{ form.gender(class_='form-select mt-3') }}
+            {% if form.gender.errors %}
+            {% for e in form.gender.errors %}
+                <p class="alert alert-danger">{{ e }}</p>
+            {% endfor %}
+            {% endif %} 
+            <label for="floatingSelectGrid">Your Gender</label>
+          </div>
+          <div class="form-floating mb-3 mt-3">
+            <!-- <input type="text" class="form-control" id="floatingInput" placeholder="username"> -->
+            {{ form.institution(class_='form-control') }}
+            {% if form.institution.errors %}
+            {% for e in form.institution.errors %}
+                <p class="alert alert-danger">{{ e }}</p>
+            {% endfor %}
+            {% endif %} 
+            <label for="floatingInput">School/Institution Name</label>
+          </div>
+          
+          <a href="{{ url_for('index') }}"><button type="button" class="btn btn-primary mt-3">Cancel </button></a>
+          <!-- <button type="button" class="btn btn-primary mt-3">Sign up</button> -->
+          {{ form.submit(class_='btn btn-primary mt-3') }}
+          
+          
+        
+        </div>
+      </div>
+    </form>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+  
+  </body>
+</html>

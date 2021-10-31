@@ -1,0 +1,20 @@
+.bg-main{
+    background-color: #0CC911;
+}
+.flex-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 80px;
+  /* height: 100vh; */
+}
+
+.local-seller-img{
+  height: 300px;
+  width: 100%;
+}
+
+.heading {
+    margin-left: 90px;
+    margin-right: 90px;
+    margin-block: 20px;
+}

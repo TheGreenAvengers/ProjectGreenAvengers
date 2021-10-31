@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Add Seller</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_addseller.css') }}">
+  </head>
+  <body>
+    
+    {% from "_macros.html" import navbar, footer %}
+
+    {{ navbar(user) }}
+
+    <div class="flex-container">
+        <div><img src="{{ url_for('static', filename='images/seller3.jpg') }}" class="image " alt=""></div>
+          <!-- division for second half of the page -->
+        <div><div class="card card-pos mt-5" style="width: 50rem;">
+          <form action="" method="POST" enctype="multipart/form-data">
+          {{ form.hidden_tag() }}
+
+            <div class="card-body pb-5 ">
+              <div class="d-flex justify-content-between">
+              <h5 class="card-title">Hey Avenger! Add a Seller</h5>
+              
+            </div>
+              <div class="form-floating mb-3 mt-3">
+                <!-- <input type="text" class="form-control" id="floatingInput" placeholder="username"> -->
+                {{ form.name(class='form-control') }}
+                {% if form.name.errors %}
+                {% for e in form.name.errors %}
+                    <p class="alert alert-danger">{{ e }}</p>
+                {% endfor %}
+                {% endif %}
+                <label for="floatingInput">Name of The Seller</label>
+              </div>
+              <div class="form-floating mb-3 mt-3">
+                <!-- <input type="text" class="form-control" id="floatingInput" placeholder="username"> -->
+                {{ form.shop_name(class='form-control') }}
+                {% if form.shop_name.errors %}
+                {% for e in form.shop_name.errors %}
+                    <p class="alert alert-danger">{{ e }}</p>
+                {% endfor %}
+                {% endif %} 
+                <label for="floatingInput">Name of shop if any</label>
+              </div>
+              <div class="form-floating mb-3 mt-3">
+                <!-- <input type="adress" class="form-control" id="floatingInput" placeholder="adress"> -->
+                {{ form.address(class='form-control') }}
+                {% if form.address.errors %}
+                {% for e in form.address.errors %}
+                    <p class="alert alert-danger">{{ e }}</p>
+                {% endfor %}
+                {% endif %}
+                <label for="floatingInput">Address of sale</label>
+              </div>
+              
+
+              
+              <div class="row g-2">
+                <div class="col-md">
+                  <div class="form-floating">
+                    <!-- <input type="phone" class="form-control" id="floatingInputGrid" placeholder="number"> -->
+                    {{ form.contact_no(class='form-control') }}
+                    {% if form.contact_no.errors %}
+                    {% for e in form.contact_no.errors %}
+                        <p class="alert alert-danger">{{ e }}</p>
+                    {% endfor %}
+                    {% endif %}
+                    <label for="floatingInputGrid">Contact no</label>
+                  </div>
+                </div>
+                <div class="col-md">
+                  <div class="form-floating">
+                    <!-- <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                      <option selected>City</option>
+                      <option value="1">Sagar</option>
+                      <option value="2">Patna</option>
+                      <option value="3">Ranchi</option>
+                    </select>  -->
+                    {{ form.city(class='form-select') }}
+                    {% if form.city.errors %}
+                    {% for e in form.city.errors %}
+                        <p class="alert alert-danger">{{ e }}</p>
+                    {% endfor %}
+                    {% endif %}
+                    <label for="floatingSelectGrid">Seller's City</label>
+                    </div>
+                   
+                </div>
+              </div>
+              <div class="mb-3 mt-4 ">
+                <label for="formFile" class="form-label">Upload Sellers image</label>
+                <!-- <input class="form-control" type="file" id="formFile"> -->
+                <div class="row">
+                  <div class="col-8">
+                    {{ form.image_file(class='form-control', onchange="document.getElementById('img-prev').src = window.URL.createObjectURL(this.files[0])") }}
+                    {% if form.image_file.errors %}
+                    {% for e in form.image_file.errors %}
+                        <p class="alert alert-danger">{{ e }}</p>
+                    {% endfor %}
+                    {% endif %}
+                  </div>
+                  <div class="col">
+                    <img id="img-prev" alt="your image" width="150" height="150" />
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary mt-4">Cancel </button>
+              <!-- <button type="button" class="btn btn-primary mt-4">Register</button> -->
+              {{ form.submit(class='btn btn-primary mt-4') }}
+            </div>
+          </form>
+        </div> 
+
+    </div>
+
+    {{ footer() }}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

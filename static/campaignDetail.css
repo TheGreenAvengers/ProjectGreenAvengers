@@ -1,0 +1,40 @@
+.bg-main{
+    background-color: #0CC911;
+}
+.carousel-item{
+    width: inherit;
+    height: 418px;
+}
+.row{
+  margin: 33px;
+}
+
+.tree-modal{
+    display: flex;
+    filter: none;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 10%;
+    width: 25rem;
+    height: fit-content;
+    z-index: 999; 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
+
+.water-modal{
+  display: flex;
+  filter: none;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 10%;
+  width: 25rem;
+  height: fit-content;
+  z-index: 999; 
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}

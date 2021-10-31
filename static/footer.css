@@ -1,0 +1,58 @@
+.abc {
+  background: red;
+  height: 800px;
+}
+
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  margin-top: auto;
+}
+
+footer h2 {
+  text-align: center;
+}
+
+.upfoot {
+  padding-top: 5px;
+  background: #3e2723f0;
+}
+
+.upfoot-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.same1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.instas {}
+
+.linkdins {}
+
+.downfoot {
+  padding: 8px 0;
+  background: #3e2723;
+}
+
+.downfoot-wrapper {}
+
+footer a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+footer a:hover{
+  color: #6bdf9ef0 !important;
+}
+footer a:active {
+  color: #3e9f6e !important;
+}
+.link {
+  color: white;
+  display: list-item;
+  margin: 4px 18px;
+}

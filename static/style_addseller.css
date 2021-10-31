@@ -1,0 +1,18 @@
+.bg-main{
+    background-color: #0CC911;
+}
+/* carousel */
+.image{
+    height:700px
+    ;
+    width: 700px;
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card-pos{
+      margin-left: 12px;
+      
+  }
+  /* position of add sellers card */

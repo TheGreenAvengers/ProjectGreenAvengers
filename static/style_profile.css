@@ -1,0 +1,18 @@
+.bg-main{
+    background-color: #0CC911;
+}
+
+.profile-img{
+    height: 10rem;
+    width: 20%;
+    
+}
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+.center {
+    width: 50%;
+    margin: auto;
+}

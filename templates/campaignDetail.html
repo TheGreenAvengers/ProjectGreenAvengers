@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>Details Campaign</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='campaignDetail.css') }}">
+</head>
+
+<body>
+  
+ 
+  {% from "_macros.html" import navbar, footer %}
+
+  {{ navbar(user) }}
+
+
+  {% if tree %}
+  <!-- <dialog id="dialog open"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      nav, .item, footer{
+        filter: blur(8px);
+      }
+      .heading{
+        color: rgb(10, 168, 81);
+        background-image: linear-gradient(rgb(112, 231, 122), white);
+      }
+    </style>
+    <div class="card tree-modal text-center">
+          <div class="p-4 display-6 heading">
+            <strong>Congratulations {{ user.username }}!</strong>
+          </div>
+          <div class="m-3">
+            <i class="fa fa-check-circle fa-lg my-3" style="font-size: 100px;color:rgb(18, 216, 34);"></i>
+            <p style="font-size: small;">Congratulations Green Avenger!!! You have planted a tree! This is a very helpful contribution in the war against climate change, degrading wildlife and a lot more.
+              But this is not the end, come back every few days to take care of your tree, it needs your support. <br>
+              This heroic act of taking care of trees has earned you 
+            </p>
+            <strong style="font-size: x-large;">10 POINTS</strong>
+          </div>
+          <a href="{{ url_for('campaignDetail', campaign_id=campaign.id) }}" class="btn btn-primary mx-5 mb-3">Continue Contributing</a>
+    </div>
+    <style>
+      body{
+        overflow: hidden;
+      }
+    </style>
+  <!-- </dialog> -->
+  {% endif %}
+
+  {% if water %}
+  <!-- <dialog id="dialog open"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      nav, .item, footer{
+        filter: blur(8px);
+      }
+      .heading{
+        color: rgb(57, 10, 168);
+        background-image: linear-gradient(rgb(112, 217, 231), white);
+      }
+    </style>
+    <div class="card water-modal text-center">
+          <div class="p-4 display-6 heading">
+            <strong>Congratulations {{ user.username }}!</strong>
+          </div>
+          <div class="m-3">
+            <i class="fa fa-check-circle fa-lg my-3" style="font-size: 100px;color:rgb(18, 203, 216);"></i>
+            <p style="font-size: small;">Congratulations Green Avenger!!! Taking care is more important than simply starting an initiative<br>
+              This heroic act of planting a tree has earned you 
+            </p>
+            <strong style="font-size: x-large;">10 POINTS</strong>
+          </div>
+          <a href="{{ url_for('campaignDetail', campaign_id=campaign.id) }}" class="btn btn-primary mx-5 mb-3">Continue Contributing</a>
+    </div>
+    <style>
+      body{
+        overflow: hidden;
+      }
+    </style>
+  <!-- </dialog> -->
+  {% endif %}
+  
+  <dialog id="dialog">
+    <form action="" method="POST" enctype="multipart/form-data" class="card-body">
+      {{ form_tree.hidden_tag() }}
+      <label for="form-label">Upload Your Image With The Plant</label>
+      {{ form_tree.plant_image(class="form-control-file", onchange="document.getElementById('img-prev').src = window.URL.createObjectURL(this.files[0])") }}
+      {% if form_tree.plant_image.errors %}
+          {% for error in form_tree.plant_image.errors %}
+            <span class="text-danger">{{ error }}</span>
+          {% endfor %}
+      {% endif %}
+      <div class="my-3">
+        <img id="img-prev" src="" alt="your image" class="img-fluid rounded" width="200" height="200" />
+      </div>
+      <div class="form-group">
+      {{ form_tree.submit(onclick="close()", class="btn btn-primary m-3") }}
+      <a href="{{ url_for('campaignDetail', campaign_id=campaign.id) }}" class="btn btn-primary">Cancel</a>
+    </div>
+    </form>
+  </dialog>
+
+  <dialog id="dialog2">
+    <form action="" method="POST" enctype="multipart/form-data" class="card-body">
+      {{ form_water.hidden_tag() }}
+      <label for="form-label">Upload An Image With The Plants</label>
+      {{ form_water.your_image(class="form-control-file", onchange="document.getElementById('img-prev-2').src = window.URL.createObjectURL(this.files[0])") }}
+      {% if form_water.your_image.errors %}
+          {% for error in form_water.your_image.errors %}
+            <span class="text-danger">{{ error }}</span>
+          {% endfor %}
+      {% endif %}
+      <div class="my-3">
+        <img id="img-prev-2" src="" alt="your image" class="img-fluid rounded" width="200" height="200" />
+      </div>
+      <div class="form-group">
+      {{ form_water.submit(onclick="close2()", class="btn btn-primary m-3") }}
+      <a href="{{ url_for('campaignDetail', campaign_id=campaign.id) }}" class="btn btn-primary">Cancel</a>
+    </div>
+    </form>
+  </dialog>
+
+  <div class="item">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{ url_for('static', filename='images/' + campaign.image_file) }}"
+            class="d-block img-fluid" alt="..." style="width: 100%;height: fit-content;">
+          <div class="carousel-caption d-none d-md-block">
+            <h5 class="display-5">{{ campaign.name }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="d-flex justify-content-around">
+
+    </div>
+    <div class="d-flex justify-content-around">
+
+    </div>
+    <dl class="row">
+      <dt class="col-sm-3">Date</dt>
+      <dd class="col-sm-9">{{ campaign.date.date() }}</dd>
+
+      <dt class="col-sm-3">Description</dt>
+      <dd class="col-sm-9">
+        <p>{{ campaign.description }}</p>
+      </dd>
+
+      <dt class="col-sm-3">Address</dt>
+      <dd class="col-sm-9">{{ campaign.address }}</dd>
+
+      <dt class="col-sm-3 text-truncate">Target</dt>
+      <dd class="col-sm-9"> {{ campaign.target }} </dd>
+
+    
+      <dt class="col-sm-3">Organizer</dt>
+      <dd class="col-sm-9"> {{ campaign.organizer.username }} </dd>
+
+      <dt class="col-sm-3">Last Maintenance</dt>
+      {% if campaign.last_maintenance %}
+        <dd class="col-sm-9"> {{ campaign.last_maintenance.date() }} </dd>
+      {% else %}
+        <dd class="col-sm-9"> The trees are not maintained yet :( </dd>
+      {% endif %} 
+    </dl>
+
+    <div class="d-grid gap-2  m-5">
+      <button class="btn btn-success py-2" type="button" onclick="show_tree()">Contribute, Click Here To Plant A Tree</button>
+      <button class="btn btn-primary py-2" type="button" onclick="show_water()">Contribute, Click Here For The Maintenance Of Plants</button>
+    </div>
+
+    {{ footer() }}
+  
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+      <script src="{{ url_for('static', filename='modal.js') }}"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+
+</body>
+
+</html>
